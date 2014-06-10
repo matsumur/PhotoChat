@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9443C01A-E314-493B-9651-85C024DC35C3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PhotoChat</RootNamespace>
+    <AssemblyName>PhotoChat</AssemblyName>
+    <ApplicationIcon>GUI\PhotoChatIcon.ico</ApplicationIcon>
+    <Win32Resource>
+    </Win32Resource>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SOUND</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A8699CFC16C95715A22192197914F4549EC879FF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PhotoChat_一時キー.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlickrNet, Version=2.1.5.19851, Culture=neutral, PublicKeyToken=2491df59efa5d132">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FlickrNet.dll</HintPath>
+    </Reference>
+    <Reference Include="libpxcclr">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Intel\PCSDK\bin\win32\libpxcclr.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\ISendable.cs" />
+    <Compile Include="Dialog\FlickrUploadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FlickrUploadDialog.Designer.cs">
+      <DependentUpon>FlickrUploadDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ServerUploadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ServerUploadDialog.Designer.cs">
+      <DependentUpon>ServerUploadDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CameraPipeline.cs" />
+    <Compile Include="GUI\ProgressWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ProgressWindow.Designer.cs">
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RecognizerConfigWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RecognizerConfigWindow.Designer.cs">
+      <DependentUpon>RecognizerConfigWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InkRecognizer.cs" />
+    <Compile Include="SharedFile.cs" />
+    <Compile Include="GUI\CameraPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dialog\ConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ConfigDialog.Designer.cs">
+      <DependentUpon>ConfigDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TagDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TagDialog.Designer.cs">
+      <DependentUpon>TagDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PhotoListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PhotoListWindow.Designer.cs">
+      <DependentUpon>PhotoListWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoChatNote\Hyperlink.cs" />
+    <Compile Include="Exception\CameraNotFoundException.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="GUI\LogWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LogWindow.Designer.cs">
+      <DependentUpon>LogWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MyListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\MyListBox.Designer.cs">
+      <DependentUpon>MyListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PaletteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PaletteWindow.Designer.cs">
+      <DependentUpon>PaletteWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ReviewPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dialog\SaveImageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\SaveImageDialog.Designer.cs">
+      <DependentUpon>SaveImageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\SessionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\SessionDialog.Designer.cs">
+      <DependentUpon>SessionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoChatNote\Sound.cs" />
+    <Compile Include="SessionManager.cs" />
+    <Compile Include="Connection\TcpConnection.cs" />
+    <Compile Include="Connection\ConnectionManager.cs" />
+    <Compile Include="Photo.cs" />
+    <Compile Include="PhotoChatClient.cs" />
+    <Compile Include="GUI\PhotoChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PhotoChatForm.Designer.cs">
+      <DependentUpon>PhotoChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoChat.cs" />
+    <Compile Include="PhotoChatImage.cs" />
+    <Compile Include="PhotoChatNote\PhotoChatNote.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialog\ConfigDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConfigDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FlickrUploadDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FlickrUploadDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\ServerUploadDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ServerUploadDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TagDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TagDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LogWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LogWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PaletteWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PaletteWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PhotoChatForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PhotoChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PhotoListWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PhotoListWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ProgressWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RecognizerConfigWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RecognizerConfigWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\SaveImageDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SaveImageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SplashWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SplashWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\UserNameInputDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserNameInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\SessionDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SessionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PhotoChatNote\Removal.cs" />
+    <Compile Include="GUI\SplashWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SplashWindow.Designer.cs">
+      <DependentUpon>SplashWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoChatNote\Stroke.cs" />
+    <Compile Include="PhotoChatNote\Tag.cs" />
+    <Compile Include="PhotoChatNote\Text.cs" />
+    <Compile Include="DataStringDictionary.cs" />
+    <Compile Include="StrokeRecognizer.cs" />
+    <Compile Include="Thumbnail.cs" />
+    <Compile Include="Connection\UdpConnection.cs" />
+    <Compile Include="Exception\UnsupportedDataException.cs" />
+    <Compile Include="Dialog\UserNameInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\UserNameInputDialog.Designer.cs">
+      <DependentUpon>UserNameInputDialog.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GUI\PhotoChatIcon.ico" />
+    <None Include="Resources\forExif.jpg" />
+    <None Include="Resources\mic.gif" />
+    <None Include="Resources\sound.gif" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\PenCursor.cur" />
+    <None Include="Resources\LiveCursor.cur" />
+    <None Include="Resources\EraserCursor.cur" />
+    <None Include="Resources\unread.gif" />
+    <None Include="Resources\updated.gif" />
+    <None Include="Resources\marker.gif" />
+    <None Include="Resources\attention.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
